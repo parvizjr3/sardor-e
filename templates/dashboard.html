@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shoco Pie - Dashboard</title>
+  <link rel="icon" type="image/jpeg" href="{% static 'images/messi.jpeg' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    body {
+      background-color: #f4f7fc;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .dashboard-container {
+      margin-top: 80px;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-container h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-container p {
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-size: 18px;
+      margin: 10px 0;
+      width: 200px;
+      text-align: center;
+    }
+
+    .btn-danger {
+      background-color: #f44336;
+      border: none;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background-color: #d32f2f;
+    }
+
+    .btn-primary {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: #45a049;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #888;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 dashboard-container">
+        <h1>Hush Kelibsiz!</h1>
+        <p>Admin Panelni bossangiz Malumotlar bazasiga kirasiz! Agar Logout ni bossangiz Bosh sahifaga qaytasiz.</p>
+        <div class="text-center">
+          <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+          <a href="{% url 'admin:index' %}" class="btn btn-primary">Admin Panel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>

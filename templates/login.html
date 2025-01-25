@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shoco Pie - Login</title>
+  <link rel="icon" type="image/jpeg" href="{% static 'images/messi.jpeg' %}" />
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .login-container {
+      margin-top: 100px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-container h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .login-container .form-group {
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #ccc;
+      transition: border 0.3s ease;
+    }
+
+    .login-container input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    .login-container button {
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 18px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .login-container button:hover {
+      background-color: #45a049;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #888;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .social-login {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-login a {
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 20px;
+      color: #3b5998;
+    }
+
+    .social-login a:hover {
+      color: #4CAF50;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 login-container">
+        <h2>Login</h2>
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <!-- Optional: Social login links -->
+        
+      </div>
+    </div>
+  </div>
+
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+
+</html>

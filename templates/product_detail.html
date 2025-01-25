@@ -1,0 +1,221 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>Shoco Pie</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/jpeg" href="{% static 'images/messi.jpeg' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}" />
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+  <style>
+    .product-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      position: relative;
+      cursor: grab;
+    }
+
+    .product-image {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-image:hover {
+      transform: scale(1.05);
+    }
+
+    .product-info-section {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .product-info-section h5 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .product-description {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .product-detail-wrapper {
+      padding-bottom: 50px;
+    }
+  </style>
+
+</head>
+
+<body class="sub_page">
+
+  <div class="main_body_content">
+
+    <div class="hero_area">
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="{% url 'index_page' %}">Shoco Pie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item "><a class="nav-link" href="{% url 'index_page' %}">Bosh Sahifa</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'about_page' %}"> Biz Haqimizda</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'chocolate_page' %}">Mahsulotlarimiz</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'testimonial_page' %}">Nega aynan biz?</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact_page' %}">Aloqa</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="chocolate_section layout_padding product-detail-wrapper">
+        <div class="container">
+          <div class="heading_container text-center">
+            <h2>{{ product.name }}</h2>
+          </div>
+        </div>
+      
+        <div class="container product-info-section">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="product-image-container" id="draggable-image" draggable="true">
+                <img src="{{ product.photo.url }}" alt="{{ product.name }}" class="product-image" id="image">
+              </div>
+              <div class="product-info-section">
+                <h5>{{ product.price|floatformat:3 }} sum (kg)</h5>
+      
+                <!-- Initially show the first 10 words of the description -->
+                <p class="product-description">
+                  <span class="short-description">{{ product.info|truncatewords:10 }}</span>
+                  <span class="full-description" style="display: none;">{{ product.info }}</span>
+                </p>
+                <a href="javascript:void(0)" class="read-more">Ko'proq o'qish</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const readMoreLinks = document.querySelectorAll(".read-more");
+      
+          readMoreLinks.forEach(link => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+      
+              const parent = this.parentElement; // Get the parent element
+              const shortDescription = parent.querySelector(".short-description");
+              const fullDescription = parent.querySelector(".full-description");
+      
+              if (shortDescription.style.display === "none") {
+                // Show short description and hide full description
+                shortDescription.style.display = "inline";
+                fullDescription.style.display = "none";
+                this.textContent = "Ko'proq o'qish";
+              } else {
+                // Show full description and hide short description
+                shortDescription.style.display = "none";
+                fullDescription.style.display = "inline";
+                this.textContent = "Kamroq O'qish";
+              }
+            });
+          });
+        });
+      </script>
+      
+      <style>
+        .product-image {
+          width: 953px; /* Fixed width */
+          height: 563px; /* Fixed height */
+          object-fit: cover; /* Ensure image fills the area while maintaining aspect ratio */
+          margin: 0 auto; /* Center the image */
+        }
+      
+        .product-image-container {
+          width: 100%; /* Ensure the container takes up full width available */
+          max-width: 953px; /* Restrict container's max width */
+          margin: 0 auto; /* Center the image container */
+        }
+      </style>
+      
+      
+      
+      
+
+    <!-- Footer Section -->
+    <footer class="container-fluid footer_section">
+      <div class="container">
+        <div class="col-md-11 col-lg-8 mx-auto text-center">
+          <p>
+            &copy; <span id="displayYear"></span> Designed by 
+            <a href="https://www.instagram.com/farkhodov_o55" target="_blank" style="color: inherit; text-decoration: underline;">
+              Parviz_jr
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  <script>
+    // JavaScript for making the image draggable
+    const draggableImage = document.getElementById('draggable-image');
+
+    draggableImage.addEventListener('dragstart', (e) => {
+      const style = window.getComputedStyle(e.target, null);
+      e.dataTransfer.setData('text/plain', 
+        (parseInt(style.getPropertyValue("left"), 10) - e.clientX) + ',' + 
+        (parseInt(style.getPropertyValue("top"), 10) - e.clientY));
+    });
+
+    document.body.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      return false;
+    });
+
+    document.body.addEventListener('drop', (e) => {
+      const offset = e.dataTransfer.getData('text/plain').split(',');
+      const x = e.clientX + parseInt(offset[0], 10);
+      const y = e.clientY + parseInt(offset[1], 10);
+      draggableImage.style.left = x + 'px';
+      draggableImage.style.top = y + 'px';
+    });
+  </script>
+
+</body>
+
+</html>
