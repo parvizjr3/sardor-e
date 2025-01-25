@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'jekyll', '~> 3.9'
+gem 'jekyll-sass-converter'
+gem 'jekyll-commonmark-ghpages'
+gem 'jekyll-paginate'
+gem 'jekyll-seo-tag'
+gem 'jekyll-github-metadata'
+gem 'jekyll-relative-links'
+gem 'jekyll-titles-from-headings'
+gem 'jekyll-default-layout'
