@@ -318,6 +318,8 @@
                       <img src="{% static 'images/photo_2025-01-24_21-21-23.jpg' %}" alt="">
                   </div>
               </div>
+
+              
               <div class="col-lg-6 px-0">
                   <div class="client_container">
                       <div class="heading_container">
@@ -451,9 +453,10 @@
 
               <form method="POST" action="{% url 'fast_contact_page' %}">
                 {% csrf_token %}
-                <input type="text" name="phone_number" placeholder="Telefon raqamingizni kiriting" required>
-                <button type="submit">
-                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                <input type="tel" name="phone_number" placeholder="Telefon raqamingizni kiriting" required
+                       style="color: black; background-color: white; border: 1px solid #ccc; padding: 10px; width: 100%;">
+                <button type="submit" style="padding: 10px; background-color: #007BFF; color: white; border: none;">
+                    Jo'natish
                 </button>
             </form>
 

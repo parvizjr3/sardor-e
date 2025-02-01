@@ -146,11 +146,14 @@
 
               <form method="POST" action="{% url 'fast_contact_page' %}">
                 {% csrf_token %}
-                <input type="text" name="phone_number" placeholder="Enter your phone number" required>
-                <button type="submit">
-                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                <input type="tel" name="phone_number" placeholder="Telefon raqamingizni kiriting" required
+                       style="color: black; background-color: white; border: 1px solid #ccc; padding: 10px; width: 100%;">
+                <button type="submit" style="padding: 10px; background-color: #007BFF; color: white; border: none;">
+                    Jo'natish
                 </button>
             </form>
+            
+            
 
 
 

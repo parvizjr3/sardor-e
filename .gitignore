@@ -1,0 +1,4 @@
+db.sqilite3
+__pycache__
+.env
+venv
