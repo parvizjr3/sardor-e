@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
 
+from django.conf.urls import handler404
+
 # includ ni chaqirdik
 from django.urls import path, include
 
@@ -16,6 +18,8 @@ urlpatterns = [
 
 
 
+
+handler404 = 'core.views.page_not_found'
  
 
 #Bu kod bloklari Django’da DEBUG rejimi faolligida statik va media fayllarni xizmat ko'rsatish uchun kerak. Keling, har birini tushuntirib beram

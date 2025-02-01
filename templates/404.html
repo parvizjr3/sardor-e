@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <title>404 | Shoco Pie</title>
+  <link rel="icon" type="image/jpeg" href="{% static 'images/messi.jpeg' %}" />
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- Font Awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body class="sub_page">
+
+  <div class="main_body_content">
+    <div class="hero_area">
+      <!-- Header Section -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="{% url 'index_page' %}">Shoco Pie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- End Header Section -->
+    </div>
+
+    <!-- 404 Error Section -->
+    <section class="layout_padding text-center">
+      <div class="container">
+        <div class="heading_container">
+          <h2>404 - Sahifa topilmadi</h2>
+        </div>
+        <p class="mt-4">
+          Kutilgan sahifa topilmadi. Iltimos, URL manzilingizni tekshirib ko'ring yoki quyidagi tugmani bosib, bosh sahifaga qayting.
+        </p>
+        <a href="{% url 'index_page' %}" class="btn btn-danger mt-4">
+          Bosh Sahifaga Qaytish
+        </a>
+      </div>
+    </section>
+    <!-- End 404 Error Section -->
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="container-fluid footer_section">
+    <div class="container">
+      <div class="col-md-11 col-lg-8 mx-auto text-center">
+        <p>
+          &copy; <span id="displayYear"></span> Designed by 
+          <a href="https://www.instagram.com/farkhodov_o55" target="_blank" style="color: inherit; text-decoration: underline;">
+            Parviz_jr
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer Section -->
+
+  <!-- jQuery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- Custom JS -->
+  <script src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
